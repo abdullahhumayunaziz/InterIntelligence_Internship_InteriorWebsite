@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Furniro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="img/home/logo 2.png">
+    <style>
+        /* Product Card Styles */
+        .product-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .product-card .info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-card h5 {
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-card .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-card .discount {
+            color: red;
+            font-size: 0.8em;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .new-badge, .discount-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: red;
+            color: #fff;
+            font-size: 0.8em;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+        .new-badge {
+            background-color: #00b894;
+        }
+
+        /* Hover effect */
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-decoration: none;
+        }
+
+        .product-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay button {
+            background-color: #fff;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            list-style-type: none;
+        }
+
+    /* Hero Section */
+    .hero {
+      background: url('img/blog/1.jpg') no-repeat center center/cover;
+      color: #fff;
+      padding: 60px 0;
+      position: relative;
+    }
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+         /* Footer */
+         footer {
+      background-color: #333;
+      color: #fff;
+      padding: 40px 0;
+      font-size: 0.9rem;
+    }
+    footer h5 {
+      color: #fff;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    footer ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    footer ul li {
+      margin-bottom: 10px;
+    }
+    footer ul li a {
+      color: #ddd;
+      text-decoration: none;
+    }
+    footer ul li a:hover {
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    /* Navbar */
+    .navbar {
+      top: 0;
+      position: fixed;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      color: #333;
+    }
+
+    .navbar-nav .nav-item .nav-link i {
+      font-size: 1.2rem;
+      margin-left: 15px;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+      color: #555;
+    }
+    .aha{
+        height: 50px;
+        width: 200px;
+    }
+
+    .divv{
+      margin-top: 90px;
+    }
+
+    </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img class="aha" src="img/home/Black_Simple_Interior_Logo_20250120_160631_0000-removebg-preview.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto" style="margin-left: 600px;">
+        <li class="nav-item"><a class="nav-link" href="">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="Chackout.html"><i class="fas fa-search"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="Chackout.html"><i class="fas fa-shopping-cart"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="Chackout.html"><i class="fas fa-user"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="divv">
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Shop</h1>
+    <p>Home > Shop</p>
+  </div>
+</section>
+<!-- Product Grid -->
+<div class="container my-5">
+    <div class="row g-4">
+        
+        <!-- Sample Product Cards -->
+        <div class="col-md-3">
+            <div class="product-card">
+                <span class="discount-badge">-30%</span>
+                <img src="img/home/4.jpg" alt="Syltherine">
+                <div class="info">
+                    <h5>Syltherine</h5>
+                    <p>Stylish cafe chair</p>
+                    <p class="price">Rp 2,500,000 <span class="discount">Rp 3,500,000</span></p>
+                </div>
+                <div class="overlay">
+                    <button><a href="Chackout.html">Checkout</a></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="product-card">
+              <span class="new-badge">New</span>
+              <img src="img/home/4.jpg" alt="Respira">
+              <div class="info">
+                  <h5>Respira</h5>
+                  <p>Outdoor bar table and stool</p>
+                  <p class="price">Rp 500,000</p>
+              </div>
+              <div class="overlay">
+                <button><a href="Chackout.html">Checkout</a></button>
+              </div>
+          </div>
+      </div>
+
+        <div class="col-md-3">
+            <div class="product-card">
+                <span class="discount-badge">-50%</span>
+                <img src="img/home/4.jpg" alt="Lolito">
+                <div class="info">
+                    <h5>Lolito</h5>
+                    <p>Luxury big sofa</p>
+                    <p class="price">Rp 7,000,000 <span class="discount">Rp 14,000,000</span></p>
+                </div>
+                <div class="overlay">
+                    <button><a href="Chackout.html">Checkout</a></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="product-card">
+                <span class="new-badge">New</span>
+                <img src="img/home/4.jpg" alt="Respira">
+                <div class="info">
+                    <h5>Respira</h5>
+                    <p>Outdoor bar table and stool</p>
+                    <p class="price">Rp 500,000</p>
+                </div>
+                <div class="overlay">
+                    <button><a href="Chackout.html">Checkout</a></button>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    <br>
+    <br>
+    <div class="row g-4">
+        
+      <!-- Sample Product Cards -->
+      <div class="col-md-3">
+          <div class="product-card">
+              <span class="discount-badge">-30%</span>
+              <img src="img/home/4.jpg" alt="Syltherine">
+              <div class="info">
+                  <h5>Syltherine</h5>
+                  <p>Stylish cafe chair</p>
+                  <p class="price">Rp 2,500,000 <span class="discount">Rp 3,500,000</span></p>
+              </div>
+              <div class="overlay">
+                <button><a href="Chackout.html">Checkout</a></button>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="product-card">
+            <span class="new-badge">New</span>
+            <img src="img/home/4.jpg" alt="Respira">
+            <div class="info">
+                <h5>Respira</h5>
+                <p>Outdoor bar table and stool</p>
+                <p class="price">Rp 500,000</p>
+            </div>
+            <div class="overlay">
+                <button><a href="Chackout.html">Checkout</a></button>
+            </div>
+        </div>
+    </div>
+
+      <div class="col-md-3">
+          <div class="product-card">
+              <span class="discount-badge">-50%</span>
+              <img src="img/home/4.jpg" alt="Lolito">
+              <div class="info">
+                  <h5>Lolito</h5>
+                  <p>Luxury big sofa</p>
+                  <p class="price">Rp 7,000,000 <span class="discount">Rp 14,000,000</span></p>
+              </div>
+              <div class="overlay">
+                <button><a href="Chackout.html">Checkout</a></button>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-3">
+          <div class="product-card">
+              <span class="new-badge">New</span>
+              <img src="img/home/4.jpg" alt="Respira">
+              <div class="info">
+                  <h5>Respira</h5>
+                  <p>Outdoor bar table and stool</p>
+                  <p class="price">Rp 500,000</p>
+              </div>
+              <div class="overlay">
+                <button><a href="Chackout.html">Checkout</a></button>
+              </div>
+          </div>
+      </div>
+
+      <br>
+      <br>
+  </div>
+  <br>
+  <br>
+  <div class="row g-4">
+        
+    <!-- Sample Product Cards -->
+    <div class="col-md-3">
+        <div class="product-card">
+            <span class="discount-badge">-30%</span>
+            <img src="img/home/4.jpg" alt="Syltherine">
+            <div class="info">
+                <h5>Syltherine</h5>
+                <p>Stylish cafe chair</p>
+                <p class="price">Rp 2,500,000 <span class="discount">Rp 3,500,000</span></p>
+            </div>
+            <div class="overlay">
+                <button><a href="Chackout.html">Checkout</a></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="product-card">
+          <span class="new-badge">New</span>
+          <img src="img/home/4.jpg" alt="Respira">
+          <div class="info">
+              <h5>Respira</h5>
+              <p>Outdoor bar table and stool</p>
+              <p class="price">Rp 500,000</p>
+          </div>
+          <div class="overlay">
+            <button><a href="Chackout.html">Checkout</a></button>
+          </div>
+      </div>
+  </div>
+
+    <div class="col-md-3">
+        <div class="product-card">
+            <span class="discount-badge">-50%</span>
+            <img src="img/home/4.jpg" alt="Lolito">
+            <div class="info">
+                <h5>Lolito</h5>
+                <p>Luxury big sofa</p>
+                <p class="price">Rp 7,000,000 <span class="discount">Rp 14,000,000</span></p>
+            </div>
+            <div class="overlay">
+                <button><a href="Chackout.html">Checkout</a></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="product-card">
+            <span class="new-badge">New</span>
+            <img src="img/home/4.jpg" alt="Respira">
+            <div class="info">
+                <h5>Respira</h5>
+                <p>Outdoor bar table and stool</p>
+                <p class="price">Rp 500,000</p>
+            </div>
+            <div class="overlay">
+                <button><a href="Chackout.html">Checkout</a></button>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center mt-4">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<br>
+<!-- Footer -->
+<footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="img/home/logo 2.png" alt="">
+          <p>404 University Drive Suite 200 Coral Gables, FL 33134 USA</p>
+        </div>
+        <div class="col-md-2">
+          <h5>Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <h5>Help</h5>
+          <ul>
+            <li><a href="#">Payment Options</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Privacy Policies</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Newsletter</h5>
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Enter your email address">
+            </div>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom mt-4">
+        <p>© 2024/2025 Furniro Interior | Designed by  Abdullah Humayun Aziz S/O Muhammad Humayun</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
